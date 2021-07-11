@@ -8,7 +8,7 @@ function onGeoSuccess(position) {
     fetch(url).then(response => response.json()).then(data => {
         const weatherContainer = document.querySelector("#weather span:first-child");
         const cityContainer = document.querySelector("#weather span:last-child");
-        weatherContainer.innerText = `${data.weather[0].main} / ${data.main.temp}`;
+        weatherContainer.innerText = `${data.weather[0].main} / ${Math.round(data.main.temp)}\u00b0C`;
         cityContainer.innerText = data.name;
     });
 }
