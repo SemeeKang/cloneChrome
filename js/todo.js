@@ -1,11 +1,11 @@
 const todoForm = document.querySelector("#todo-form");
 const todoList = document.querySelector("#todo-list");
 const todoInput = todoForm.querySelector("input");
+const todoContainer = document.querySelector("#todo-container");
 
 let todos = [];
 
 const STORAGE_KEY_TODOS = "todos";
-
 
 function saveTodos() {
     localStorage.setItem(STORAGE_KEY_TODOS, JSON.stringify(todos));
@@ -26,7 +26,6 @@ function paintTodo(todo) {
     item.id = todo.id;
     const span = document.createElement("span");
     const button = document.createElement("button");
-    button.innerText = "Delete";
     button.addEventListener("click", deleteTodo);
 
     span.innerText = todo.text;
@@ -52,12 +51,23 @@ function onSubmitTodoHandler(e) {
     saveTodos();
 }
 
+function paintTodos() {
+    const savedTodos = localStorage.getItem(STORAGE_KEY_TODOS);
+    if(savedTodos) {
+        const parsedTodos = JSON.parse(savedTodos);
+        todos = parsedTodos;
+        parsedTodos.forEach(item => paintTodo(item));
+    }
+    todoContainer.classList.remove(HIDDEN_CLASSNAME);
+}
+
 todoForm.addEventListener("submit", onSubmitTodoHandler);
 
-const savedTodos = localStorage.getItem(STORAGE_KEY_TODOS);
-if(savedTodos) {
-    const parsedTodos = JSON.parse(savedTodos);
-    todos = parsedTodos;
-    parsedTodos.forEach(item => paintTodo(item));
-    
+const username = localStorage.getItem(STORAGE_KEY_USERNAME);
+if(username !== null) {
+    paintTodos();
+}  else {
+    todoContainer.classList.add(HIDDEN_CLASSNAME);
 }
+
+

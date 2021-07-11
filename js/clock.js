@@ -10,7 +10,7 @@ function getClcok() {
     const minute = String(date.getMinutes()).padStart(2, "0");
     const second = String(date.getSeconds()).padStart(2, "0");
     
-    clock.innerHTML = `${hour}:${minute}:${second}`;
+    clock.innerHTML = `${hour} : ${minute} : ${second}`;
 }
 
 

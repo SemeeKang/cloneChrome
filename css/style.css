@@ -1,3 +1,113 @@
+body {
+    width: 100%;
+    margin: 0px;
+    color: white;
+    font-family: 'Roboto Mono', monospace;
+}
 .hidden {
     display: none;
+}
+
+#container {
+    position: relative;
+    width:100%;
+    height: 100%;
+}
+
+#quote {
+    position: absolute;
+    bottom: 8px;
+    width: 100%;
+    text-align: center;
+    font-family: 'Yomogi', cursive;
+    font-weight: 500;
+}
+
+#weather {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    text-align: right;
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Roboto Mono', monospace;
+}
+
+#contents {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+    text-align: center;
+    font-family: 'Anton', sans-serif;
+}
+
+input {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    border-color: white;
+    background-color: transparent;
+    color: white;
+
+    font-size: 20px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+input:focus { outline: none; }
+
+.bg-image {
+    filter: blur(2px);
+    -webkit-filter: blur(2px);
+    height: 100%; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#clock {
+    text-shadow: 1px 1px 2px black, 0 0 20px purple, 0 0 5px maroon;
+    font-size: 48px;
+}
+
+#greeting {
+    text-shadow: 0 0 3px black;
+    letter-spacing: 3px;
+}
+
+#todo-container {
+    position: absolute;
+    top: 50%;
+    text-align: center;
+    width: 100%;
+}
+
+
+#todo-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    margin-top: 30px;
+    margin-left:30%;
+    margin-right:30%;
+    padding: 10px;
+    background: rgb(6, 12, 33, 0.6);
+}
+
+#todo-list > li {
+    font-size: 16px;
+    margin: 5px 0px;
+    vertical-align: middle;
+}
+
+button {
+    all:unset;
+    width:10px;
+    height:10px;
+    padding: 2px;
+    margin-left: 8px;
+    background-size: 100%;
+    background-image: url("../img/delete.png");
+    
 }
